@@ -22,7 +22,7 @@ summary(cars)
 ## Results
 
 ```{r}
-out
+drake::readd(out)
 ```
 
 
@@ -31,6 +31,16 @@ out
 You can also embed plots, for example:
 
 ```{r pressure, echo=FALSE}
+    color_table  <-  c(Asia = 'tomato', Europe = 'chocolate4', Africa = 'dodgerblue2', Americas = 'darkgoldenrod1', Oceania = 'green4')
+    col          <-  category_color(data_1982$continent, color_table)
+    cex          <-  rescale(sqrt(data_1982$pop), c(0.2, 10))
+    continents   <-  unique(data_1982$continent)
+    
+    plot(lifeExp ~ gdpPercap, data_1982, log = 'x', cex = cex, col = col, pch = 21, las = 1, xlab = 'GDP per capita', ylab = 'Life expectancy (years)', main = '1982')
+    for (i in seq_along(continents)) {
+        f(data = data_1982, continent = continents[i], color_table = color_table)
+    }
+
 plot(pressure)
 ```
 

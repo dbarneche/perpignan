@@ -1,3 +1,5 @@
+library(lme4)
+
 source('R/analysis.R')
 source('R/figures.R')
 
@@ -10,7 +12,6 @@ data_1982  <-  data[data$year == 1982, ]
 ############
 # ANALYSIS #
 ############
-library(lme4)
 model  <-  lme4::lmer(log(lifeExp) ~ log(gdpPercap) + (1 + log(gdpPercap) | year), data = data)
 out    <-  coef(model)
 

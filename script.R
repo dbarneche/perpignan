@@ -2,6 +2,7 @@
 # FUNCTIONS #
 #############
 rescale  <-  function (x, range) {
+    # some useless comment
     p  <-  (x - min(x)) / (max(x) - min(x))
     range[[1]] + p * (range[[2]] - range[[1]])
 }

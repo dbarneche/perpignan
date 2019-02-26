@@ -1,6 +1,7 @@
 
 plan  <-  drake::drake_plan(
     data       =  read.csv('data/gapminder-FiveYearData.csv', stringsAsFactors = FALSE),
+    destroy    =  'ha-ha',
     data_1982  =  data[data$year == 1982, ],
     model      =  lme4::lmer(log(lifeExp) ~ log(gdpPercap) + (1 + log(gdpPercap) | year), data = data),
     out        =  coef(model),
